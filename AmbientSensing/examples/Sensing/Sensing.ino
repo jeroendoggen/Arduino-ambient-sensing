@@ -7,6 +7,9 @@
 #include "SignalFilter.h"
 //--------------------------------
 
+uint8_t temperaturePin = A0;
+uint8_t humidityPin    = A1;
+
 AmbientSensing Ambient;
 uint8_t temperature;
 uint8_t humidity;
@@ -14,7 +17,7 @@ uint8_t humidity;
 void setup()
 {
   Serial.begin(115200);
-  Ambient.begin();
+  Ambient.begin(temperaturePin, humidityPin);
 }
 
 void loop()

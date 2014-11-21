@@ -38,10 +38,10 @@ AmbientSensing::~AmbientSensing()
 /**
  * Begin Function: begin all sensors
  */
-void AmbientSensing::begin()
+void AmbientSensing::begin(uint8_t temperature_pin, uint8_t humidity_pin)
 {
-  _Temperature.begin(TEMPERATURE1_PIN);
-  _Humidity.begin(HUMIDITY1_PIN);
+  _Temperature.begin(temperature_pin);
+  _Humidity.begin(humidity_pin);
 
 //TODO: use a begin function with parameters for the filters
   _HumidityFilter.begin();
