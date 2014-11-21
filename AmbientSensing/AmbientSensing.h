@@ -34,24 +34,24 @@
 class AmbientSensing
 {
   public:
-    AmbientSensing();                             // Constructor
-    ~AmbientSensing();                            // Destructor
+    AmbientSensing();                             				// Constructor
+    ~AmbientSensing();                            				// Destructor
 
-    void begin();                                 // Begin all sensors
+    void begin(uint8_t temperature_pin, uint8_t humidity_pin); 	// Begin all sensors
+	
+    uint8_t getHumidity();                        				// Read humidity sensor value
+    uint8_t getTemperature();                     				// Read temperature sensor value
 
-    uint8_t getHumidity();                        // Read humidity sensor value
-    uint8_t getTemperature();                     // Read temperature sensor value
-
-    uint8_t getFilteredHumidity();                // Humidity values filtered with median Filter
-    uint8_t getFilteredTemperature();             // Temperature values filtered with median Filter
+    uint8_t getFilteredHumidity();                				// Humidity values filtered with median Filter
+    uint8_t getFilteredTemperature();             				// Temperature values filtered with median Filter
 
 #ifdef DEBUG_AMBIENT
     void printAmbientSensors();
 #endif
   private:
-    HumidityHIH4030 _Humidity;                    // Humidity sensor object
-    TemperatureTMP _Temperature;                  // Temperature sensor object
-    SignalFilter _HumidityFilter;                 // Humidity sensor Filter object
-    SignalFilter _TemperatureFilter;              // Temperature sensor Filter object
+    HumidityHIH4030 _Humidity;                    				// Humidity sensor object
+    TemperatureTMP  _Temperature;                 				// Temperature sensor object
+    SignalFilter    _HumidityFilter;              				// Humidity sensor Filter object
+    SignalFilter    _TemperatureFilter;           				// Temperature sensor Filter object
 };
 #endif
